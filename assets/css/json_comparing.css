@@ -1,0 +1,8 @@
+#input1, #input2{
+    height: 700px;
+    resize: none;
+}
+
+#btn_comparing{
+    margin-top: 10px;
+}
