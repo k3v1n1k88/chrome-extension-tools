@@ -30,16 +30,10 @@ const editor2 = new JSONEditor(document.getElementById('jsoneditor2'), options2,
 // }
 
 document.getElementById('btn_format').addEventListener('click', function () {
-    let textInput = editor1.getText();
-    // re-quote
-    textInput= textInput.replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ');
-    let isJson = isJsonString(textInput);
-    alert(textInput)
-    if(isJson){
-        alert(isJson);
+    try {
+        let textInput = editor1.getText();
         editor2.setText(JSON.stringify(JSON.parse(textInput), undefined, 2));
-        return;
-    }else{
-        alert("invalid json")
+    } catch (error) {
+        alert('invalid json');
     }
 });
